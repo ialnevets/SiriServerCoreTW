@@ -1,1 +1,16 @@
 台灣Siri中文團隊原始碼
+
+這是SiriServer的原始碼。創始：Eichhoernchen/SiriServer，可以在Github上找到。
+如果喜歡的話我們還是開放捐款，PayPal可以支付給：ialnevets@me.com。
+
+各位如果對這個Project有任何興趣或任何問題可以在上面Pull Request或是Issues發問。
+
+這是一個非Apple官方的Siri中文版伺服器運作檔案。注意，這不是Siri Proxy（中繼站噢）。
+這一套軟體是仿造Apple的Siri傳輸協定，可以實現大多Siri的功能。
+這個軟體可以獨立讓非iPhone 4S的裝置運行連結。
+
+運作：
+1. 透過Speex以及Google Flac 2種包裝語音封包的方式將”說“的問題傳給Google分析。
+2. 透過Google轉換成文字。
+3. 將文字送入Plugins中搜尋關鍵字或是配對完整問句。
+4. 獲取答案或是使用呼叫Plugin方式顯示天氣，股市等資訊。
