@@ -52,3 +52,11 @@ pyOpenSSL is also a requirement for twisted, so installing twisted will already 
 在Debain上可以使用apt來安裝:
 sudo apt-get install python-twisted
 在Mac OS X上有2種方式： sudo easy_install pyOpenSSL twisted 或是 sudo port install py27-openssl py27-twisted
+
+完成後你需要重新產生Certificate，請將Keys資料夾中的ca.pem檔案刪除。重新執行SiriServer.py當按時就會自行生產了。
+
+安裝apiKeys請將apiKeys.conf打開並且輸入金鑰。
+設定Database記錄使用者連銜請將db.py打開並且輸入Database詳細資訊。
+啟動Plugins請將Plugins.conf打開設定來開啟或關閉特定功能，預設是全部開啓。
+
+設定一切完成後執行：python SiriServer.py 即可，預設Port 4443。
