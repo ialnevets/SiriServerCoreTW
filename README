@@ -11,8 +11,11 @@
 
 運作：
 1. 透過Speex以及Google Flac 2種包裝語音封包的方式將”說“的問題傳給Google分析。
+
 2. 透過Google轉換成文字。
+
 3. 將文字送入Plugins中搜尋關鍵字或是配對完整問句。
+
 4. 獲取答案或是使用呼叫Plugin方式顯示天氣，股市等資訊。
 
 安裝教學～
@@ -78,3 +81,8 @@ sudo easy_install pyOpenSSL twisted 或是 sudo port install py27-openssl py27-t
 4. 到Spire的設定欄中輸入正確網址以及port number。
 
 5. 設定中開啟Spire，重新開機。完成。
+
+版權：
+這個軟體目前是比照Creative Commons Attribution-NonCommercial-ShareAlike 3.0。
+你可以對這個原始碼做任何的修改或是變更，但是你不得已自行販售或從中獲利。
+如果你需要任何的私人或商業授權請聯絡我們。
