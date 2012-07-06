@@ -1,0 +1,90 @@
+台灣Siri中文團隊原始碼
+
+這是SiriServer的原始碼。創始：Eichhoernchen/SiriServer，可以在Github上找到。
+如果喜歡的話我們還是開放捐款，PayPal可以支付給：ialnevets@me.com。
+
+各位如果對這個Project有任何興趣或任何問題可以在上面Pull Request或是Issues發問。
+
+這是一個非Apple官方的Siri中文版伺服器運作檔案。注意，這不是Siri Proxy（中繼站噢）。
+這一套軟體是仿造Apple的Siri傳輸協定，可以實現大多Siri的功能。
+這個軟體可以獨立讓非iPhone 4S的裝置運行連結。
+
+運作：
+1. 透過Speex以及Google Flac 2種包裝語音封包的方式將”說“的問題傳給Google分析。
+
+2. 透過Google轉換成文字。
+
+3. 將文字送入Plugins中搜尋關鍵字或是配對完整問句。
+
+4. 獲取答案或是使用呼叫Plugin方式顯示天氣，股市等資訊。
+
+安裝教學～
+
+如果要使用SiriServer你必須先安裝libspeex以及libflac。
+
+如果在Linux上可以直接執行：
+sudo apt-get install libspeex1 libflac8
+在OS X上下載 libspeex，libflac請到網路上另外找連結安裝或是直接執行下面步驟：
+
+wget http://downloads.xiph.org/releases/speex/speex-1.2rc1.tar.gz
+tar -xf speex-1.2rc1.tar.gz
+cd speex-1.2rc1
+./configure
+make
+sudo make install
+cd ..
+
+wget http://sourceforge.net/projects/flac/files/flac-src/flac-1.2.1-src/flac-1.2.1.tar.gz/download -O flac-1.2.1.tar.gz
+tar -xf flac-1.2.1.tar.gz
+cd flac-1.2.1
+./configure --disable-asm-optimizations
+make
+sudo make install
+
+Python Requirements：
+
+這個原始碼是使用Python撰寫的，你需要python interpreter 一般都有預設裝好了。
+一般python 2.6.6，2.7.2可以正常運行。
+
+你還需要額外的Python Packages來運行：
+
+[twisted](http://twistedmatrix.com/)
+[pyOpenSSL](https://launchpad.net/pyopenssl)
+
+在Debain上可以使用apt來安裝:
+sudo apt-get install python-twisted
+在Mac OS X上有2種方式： 
+sudo easy_install pyOpenSSL twisted 或是 sudo port install py27-openssl py27-twisted
+
+完成後你需要重新產生Certificate，請將Keys資料夾中的ca.pem檔案刪除。
+重新執行SiriServer.py當按時就會自行生產了。
+
+安裝apiKeys請將apiKeys.conf打開並且輸入金鑰。
+設定Database記錄使用者連銜請將db.py打開並且輸入Database詳細資訊。
+啟動Plugins請將Plugins.conf打開設定來開啟或關閉特定功能，預設是全部開啓。
+
+設定一切完成後執行：python SiriServer.py 即可，預設Port 4443。
+如果要修改在後面加參數-p 以及port number即可。
+
+手機設定：
+設定手機需要先安裝Siri GUI（Siri圖形界面）。
+一般建議使用Spire，可以在Cydia中搜尋取得。
+其他的Siri GUI也可以使用（比方說Siriport.ru）。
+
+1. 搜尋Spire。安裝。
+注意：檔案容量較大，需要比較久的時間下載。
+
+2. 將SiriServer資料夾中的Keys裡新生產的ca.pem檔案以email方式寄送到手機。
+
+3. 安裝ca.pem檔案。
+
+4. 到Spire的設定欄中輸入正確網址以及port number。
+
+5. 設定中開啟Spire，重新開機。完成。
+
+版權：
+這個軟體目前是比照Creative Commons Attribution-NonCommercial-ShareAlike 3.0。
+你可以對這個原始碼做任何的修改或是變更，但是你不得已自行販售或從中獲利。
+如果你需要任何的私人或商業授權請聯絡我們。
+
+備註：此軟體並無與Apple有任何關係，請小心使用。
