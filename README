@@ -37,26 +37,44 @@ cd flac-1.2.1
 ./configure --disable-asm-optimizations
 make
 sudo make install
-Note: you can also install libspeex via MacPorts, but libflac is not available in 64bit through MacPorts, to make it build with 64bit support you need to supply --disable-asm-optimizations in configure of libflac to make it compile
 
 Python Requirements：
 
-這個原始碼是使用Python撰寫的，你需要python interpreter 一般都有預設裝好了。一般python 2.6.6，2.7.2可以正常運行。
+這個原始碼是使用Python撰寫的，你需要python interpreter 一般都有預設裝好了。
+一般python 2.6.6，2.7.2可以正常運行。
 
 你還需要額外的Python Packages來運行：
 
 [twisted](http://twistedmatrix.com/)
 [pyOpenSSL](https://launchpad.net/pyopenssl)
-pyOpenSSL is also a requirement for twisted, so installing twisted will already force an installation of pyOpenSSL.
 
 在Debain上可以使用apt來安裝:
 sudo apt-get install python-twisted
-在Mac OS X上有2種方式： sudo easy_install pyOpenSSL twisted 或是 sudo port install py27-openssl py27-twisted
+在Mac OS X上有2種方式： 
+sudo easy_install pyOpenSSL twisted 或是 sudo port install py27-openssl py27-twisted
 
-完成後你需要重新產生Certificate，請將Keys資料夾中的ca.pem檔案刪除。重新執行SiriServer.py當按時就會自行生產了。
+完成後你需要重新產生Certificate，請將Keys資料夾中的ca.pem檔案刪除。
+重新執行SiriServer.py當按時就會自行生產了。
 
 安裝apiKeys請將apiKeys.conf打開並且輸入金鑰。
 設定Database記錄使用者連銜請將db.py打開並且輸入Database詳細資訊。
 啟動Plugins請將Plugins.conf打開設定來開啟或關閉特定功能，預設是全部開啓。
 
 設定一切完成後執行：python SiriServer.py 即可，預設Port 4443。
+如果要修改在後面加參數-p 以及port number即可。
+
+手機設定：
+設定手機需要先安裝Siri GUI（Siri圖形界面）。
+一般建議使用Spire，可以在Cydia中搜尋取得。
+其他的Siri GUI也可以使用（比方說Siriport.ru）。
+
+1. 搜尋Spire。安裝。
+注意：檔案容量較大，需要比較久的時間下載。
+
+2. 將SiriServer資料夾中的Keys裡新生產的ca.pem檔案以email方式寄送到手機。
+
+3. 安裝ca.pem檔案。
+
+4. 到Spire的設定欄中輸入正確網址以及port number。
+
+5. 設定中開啟Spire，重新開機。完成。
