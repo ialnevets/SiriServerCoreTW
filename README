@@ -83,7 +83,9 @@ sudo easy_install pyOpenSSL twisted 或是 sudo port install py27-openssl py27-t
 
 4. 到Spire的設定欄中輸入正確網址以及port number。
 
-5. 設定中開啟Spire，重新開機。完成。
+5. 搜尋AnyVoice。安裝。設定成繁體中文。
+
+6. 設定中開啟Spire，重新開機。完成。
 
 版權：
 這個軟體目前是比照Creative Commons Attribution-NonCommercial-ShareAlike 3.0。
